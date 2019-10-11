@@ -1,4 +1,8 @@
 # KoopaPOS
 This is a pet shop Point of Sale
 
-created in platzi javascript school
+#Team members:
+@eriksape
+@roifuries
+
+Created in platzi javascript school
