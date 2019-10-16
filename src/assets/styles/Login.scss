@@ -1,0 +1,113 @@
+.login__header {
+  background-color: #e5e5e5;
+  align-items: center;
+  color: white;
+  display: flex;
+  height: 100px;
+  justify-content: space-between;
+  top: 0px;
+  width: 100%;
+
+  & .login__header__img {
+    margin-top:10px;
+    width: 306px;
+    height: 96px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.login__section {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 12px;
+
+  & .login__container {
+    background-color: white;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    width: 306px;
+    box-shadow: 0 5px 9px rgba(0, 0, 0, 0.63);
+
+    & .login__container__tabs {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      height: 48px;
+      div {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #ededed;
+        &.selected {
+          background: white;
+        }
+        a {
+          text-decoration: none;
+          color: inherit;
+          font-weight: bold;
+          color: #6E6E6E;
+        }
+      }
+    }
+
+    .login__container__form {
+      padding: 0px 16px;
+
+      input[type=text], input[type=password] {
+        background-color: transparent;
+        border-bottom: 1px solid #efefef;
+        border-left: 0px;
+        border-right: 0px;
+        border-top: 0px;
+        color: black;
+        font-family: 'Muli', sans-serif;
+        font-size: 16px;
+        height: 28px;
+        margin-top: 12px;
+        outline: none;
+        width: 272px;
+        &::placeholder {
+          padding-left: 24px;
+          color: #A2A2A2;
+          font-size: 14px;
+        }
+      }
+      input[type=submit] {
+        background-color: #ff8900;
+        border: 0;
+        width: 271px;
+        height: 44px;
+        margin-top: 32px;
+        color: white;
+        appearance: none;
+        border-radius: 0px;
+        font-size: 16px;
+      }
+      & .link__forgotten__password {
+        margin-top: 24px;
+        margin-bottom: 24px;;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #a2a2a2;
+        a {
+          text-decoration: none;
+          color: inherit;
+        }
+      }
+    }
+  }
+
+  & .login__social {
+    div {
+      margin-top: 12px;
+    }
+  }
+}
