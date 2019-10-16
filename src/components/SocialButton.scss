@@ -1,0 +1,27 @@
+.social__button {
+  width: 271px;
+  height: 44px;
+  background: red;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  flex-direction: row;
+  & img {
+    margin: 14px 0px 14px 20px;
+    width: 16px;
+    height: 14px;
+  }
+  & span {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-transform: capitalize;
+  }
+  &.facebook {
+    background: #4458B4;
+  }
+  &.twitter {
+    background: #39BAF0;
+  }
+}
