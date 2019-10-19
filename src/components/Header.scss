@@ -1,0 +1,25 @@
+header.header__application {
+  margin: 1em;
+  & .header__actions {
+    display: flex;
+    justify-content: space-between;
+  }
+  & .header__searchbox {
+    margin: 1em 1em 1.5em;
+  }
+}
+
+.icon__input {
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75em;
+  border-radius: 4px;
+  & input {
+    border: 0;
+    width: 100%;
+    &:focus {
+      outline: none;
+    }
+  }
+}
