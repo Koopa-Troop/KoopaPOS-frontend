@@ -1,7 +1,7 @@
 # KoopaPOS
 This is a pet shop Point of Sale.
 
-##### Team members:
+#### Team members:
 - @eriksape
 - @roifuries
 

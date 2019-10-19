@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import SocialButton from '../components/SocialButton';
 import logo from '../assets/statics/rectlogo.svg'
 import facebook_logo from '../assets/statics/social/facebook.png';
@@ -24,16 +25,18 @@ const Login = () => (
             <form>
               <input type='text' name='email' placeholder='Correo' />
               <input type='password' name='password' placeholder='Contraseña' />
-              <input type='submit' value='Iniciar Sesión' />
+              <Link to='/'>
+                <input type='submit' value='Iniciar Sesión' />
+              </Link>
               <div className='link__forgotten__password'>
                 <a href='https://google.com'>¿Olvidaste tu contraseña?</a>
               </div>
             </form>
           </div>
       </section>
-      <section className="login__social">
-        <SocialButton title="facebook" img={facebook_logo}/>
-        <SocialButton title="twitter" img={twitter_logo}/>
+      <section className='login__social'>
+        <SocialButton title='facebook' img={facebook_logo}/>
+        <SocialButton title='twitter' img={twitter_logo}/>
       </section>
     </section>
 </>
