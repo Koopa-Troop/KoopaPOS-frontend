@@ -48,12 +48,13 @@ module.exports = {
         ],
       },
       {
-        test: /\.(png|gif|jpg|svg)$/,
+        test: /\.(png|gif|jpg|svg|woff(2)?|ttf|eot)$/,
         use: [
           {
             'loader': 'file-loader',
             options: {
-              name: 'assets/[hash].[ext]'
+              name: 'assets/[hash].[ext]',
+              publicPath: '/',
             }
           }
         ]
