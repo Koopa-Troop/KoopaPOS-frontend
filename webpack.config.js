@@ -1,12 +1,14 @@
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const autoprefixer = require('autoprefixer');
 
 module.exports = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
+    publicPath: '/',
   },
   resolve: {
     extensions: ['.js', '.jsx'],
@@ -41,9 +43,9 @@ module.exports = {
             options: {
               ident: 'postcss',
               plugins: [
-                require('autoprefixer')(),
-              ]
-            }
+                autoprefixer(),
+              ],
+            },
           },
         ],
       },
@@ -55,14 +57,14 @@ module.exports = {
             options: {
               name: 'assets/[hash].[ext]',
               publicPath: '/',
-            }
-          }
-        ]
+            },
+          },
+        ],
       },
     ],
   },
   devServer: {
-    historyApiFallback: true
+    historyApiFallback: true,
   },
   plugins: [
     new HtmlWebPackPlugin({
@@ -71,6 +73,7 @@ module.exports = {
     }),
     new MiniCssExtractPlugin({
       filename: 'assets/[name].css',
+      publicPath: '/',
     }),
   ],
 };
