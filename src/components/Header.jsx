@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import IconInput from './IconInput';
 import './Header.scss';
 
 const Header = ({quantity, showSearchBox}) => (
@@ -17,10 +18,7 @@ const Header = ({quantity, showSearchBox}) => (
     </div>
     {showSearchBox && (
       <div className='header__searchbox'>
-        <div className='icon__input right'>
-          <input placeholder='Buscar producto' />
-          <i className='fas fa-search' />
-        </div>
+        <IconInput icon='fas fa-search' placeholder='Buscar Producto' />
       </div>
     )}
   </header>
