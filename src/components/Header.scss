@@ -9,32 +9,6 @@ header.header__application {
   }
 }
 
-.icon__input {
-  background: white;
-  display: flex;
-  justify-content: space-between;
-  padding: 0.75em;
-  border-radius: 4px;
-  & input {
-    border: 0;
-    width: 100%;
-    &:focus {
-      outline: none;
-    }
-  }
-}
-
-.icon__badge {
-  position: relative;
-  right: 10px;
-  top: -8px;
-  background: red;
-  border-radius: 10px;
-  padding: 3px;
-  color: white;
-  font-size: 0.8rem;
-}
-
 .undecored {
   color: inherit;
   text-decoration: inherit;
