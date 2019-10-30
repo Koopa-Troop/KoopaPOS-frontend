@@ -4,7 +4,7 @@ import Header from '../components/Header';
 import { addToCart } from '../actions';
 import '../assets/styles/Product.scss';
 
-const ProductList = ({ product, addToCart, history }) => {
+const Product = ({ product, addToCart, history }) => {
   const [quantity, setQuantity] = useState();
 
   return (
@@ -59,4 +59,4 @@ const mapDispatchToProps = {
   addToCart,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProductList);
+export default connect(mapStateToProps, mapDispatchToProps)(Product);

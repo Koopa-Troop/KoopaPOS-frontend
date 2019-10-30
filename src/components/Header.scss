@@ -26,11 +26,16 @@ header.header__application {
 
 .icon__badge {
   position: relative;
-  right: 4px;
+  right: 10px;
   top: -8px;
   background: red;
   border-radius: 10px;
   padding: 3px;
   color: white;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
+}
+
+.undecored {
+  color: inherit;
+  text-decoration: inherit;
 }

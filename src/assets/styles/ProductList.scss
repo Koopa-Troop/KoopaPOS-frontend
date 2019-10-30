@@ -11,6 +11,16 @@ section.product__list_container {
     flex-direction: row;
     justify-content: center;
     position:relative;
+    &:first-child {
+      &:before {
+        content:'';
+        width:96%;
+        height:1px;
+        background:gray;
+        position:absolute;
+        top:0;
+      }
+    }
     &:after {
       content:'';
       width:96%;
@@ -28,6 +38,7 @@ section.product__list_container {
     }
 
     & .product__item__info {
+      margin-top: 6px;
       height: 96px;
       width: 100%;
       display: flex;
