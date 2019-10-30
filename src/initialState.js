@@ -1,8 +1,25 @@
 const initialState = {
   search: '',
-  cart: [],
-  quantity: 0,
-  total: 0,
+  cart: [
+    {
+      id: '1',
+      name: 'Adult Large Breed',
+      image: 'https://www.eukanuba.com.mx/40-thickbox_default/adult-large-breed.jpg',
+      price: 1.52,
+      availability: true,
+      quantity: 5,
+    },
+    {
+      id: '2',
+      name: 'Adult Medium Breed',
+      image: 'https://www.eukanuba.com.mx/37-home_default/adult-medium-breed.jpg',
+      price: 1.52,
+      availability: true,
+      quantity: 5,
+    },
+  ],
+  quantity: 10,
+  total: 15.2,
   products: [
     {
       id: '1',
