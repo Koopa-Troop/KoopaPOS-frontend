@@ -1,5 +1,8 @@
 const initialState = {
   search: '',
+  quantity: 10,
+  total: 15.2,
+  customer: {},
   cart: [
     {
       id: '1',
@@ -18,8 +21,6 @@ const initialState = {
       quantity: 5,
     },
   ],
-  quantity: 10,
-  total: 15.2,
   products: [
     {
       id: '1',
@@ -93,6 +94,13 @@ const initialState = {
       image: 'https://www.eukanuba.com.mx/51-home_default/healthy-extras-puppy.jpg',
       price: 1.52,
       availability: true,
+    },
+  ],
+  customers: [
+    {
+      fullname: 'Jocelyn Hernández',
+      phone: '9999999999',
+      email: 'email@abc.com',
     },
   ],
 };
