@@ -1,0 +1,25 @@
+section.print__page {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  height: 85vh;
+  width: 100vw;
+  & section.print__ticket {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    & .print__ticket__whitebox {
+      width: 224px;
+      height: 224px;
+      background-color: white;
+      border: 1px solid #707070;
+    }
+    & .print__ticket__text {
+      margin-top: 28px;
+      font-size: 1rem;
+    }
+  }
+
+}
