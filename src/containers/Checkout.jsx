@@ -2,13 +2,24 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import IconInput from '../components/IconInput';
+import { resetCart } from '../actions';
 import '../assets/styles/Checkout.scss';
 
-const Checkout = ({ quantity, total }) => {
+const Checkout = ({ quantity, total, customer, history, resetCart }) => {
   const [pay = 0, changePay] = useState();
-  console.log('pay', pay);
   const exChange = (pay <= total) ? 0 : pay - total;
-  console.log('exchange', exChange);
+  const customerHasBeenSelected = Object.keys(customer).length > 0;
+
+  const handlePay = (event) => {
+    if (pay < total) {
+      event.preventDefault();
+      console.log('validation');
+    } else {
+      resetCart();
+      history.push('/');
+    }
+  };
+
   return (
     <section className='checkout__products'>
       <div className='checkout__products__total'>
@@ -33,36 +44,36 @@ const Checkout = ({ quantity, total }) => {
         Cambio: &nbsp;
         {exChange.toFixed(2)}
       </div>
+      { customerHasBeenSelected &&
+        <div className='checkout__products__pay__customer'>{customer.fullname}</div>
+      }
       <div className='checkout__products__pay__actions'>
-        <Link to='/' className='undecored'>
-          <div className='link__button'>Buscar Cliente</div>
-        </Link>
+        { !customerHasBeenSelected && (
+          <Link to='/search-customer' className='undecored'>
+            <div className='link__button'>Buscar Cliente</div>
+          </Link>
+        )}
         <Link to='/' className='undecored'>
           <div className='link__button'>Cancelar</div>
         </Link>
-        <Link
-          to='/'
-          className='undecored'
-          onClick={(e) => {
-            if (pay < total) {
-              e.preventDefault();
-              console.log('validation');
-            }
-          }}
-        >
+        <div onClick={handlePay} role='link' tabIndex={0}>
           <div className='link__button'>Continuar</div>
-        </Link>
+        </div>
       </div>
     </section>
   );
 };
 
 const mapStateToProps = (state) => {
-  console.log(state.cart);
   return {
     quantity: state.quantity,
     total: state.total,
+    customer: state.customer,
   };
 };
 
-export default connect(mapStateToProps, null)(Checkout);
+const mapDispatchToProps = {
+  resetCart,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Checkout);

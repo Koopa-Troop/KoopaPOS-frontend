@@ -1,12 +1,18 @@
 section.checkout__products {
   margin: 1em 1em 1.5em;
-  .checkout__products__pay__actions {
+  & > .checkout__products__pay__control,
+  & > .checkout__products__pay__exchange,
+  & > .checkout__products__pay__customer {
+    margin-top: 12px;
+  }
+  & .checkout__products__pay__actions {
+    margin-top: 16px;
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: center;
     width: 100%;
-    & a{
+    & > a, & > div{
       margin-top: 16px;
     }
   }
