@@ -16,7 +16,7 @@ const Checkout = ({ quantity, total, customer, history, resetCart }) => {
       console.log('validation');
     } else {
       resetCart();
-      history.push('/');
+      history.push('/print');
     }
   };
 
