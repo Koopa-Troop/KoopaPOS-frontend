@@ -35,6 +35,21 @@ const reducer = (state, action) => {
         total: total - (removed[0].quantity * removed[0].price),
       });
     }
+    case 'FIND_CUSTOMER': {
+      const customer = state.customers.find(customer => customer.email === action.payload.email);
+      return ({
+        ...state,
+        customer,
+      });
+    }
+    case 'RESET_CART':
+      return ({
+        ...state,
+        customer: {},
+        cart: [],
+        quantity: 0,
+        total: 0,
+      });
     default:
       return state;
   }
