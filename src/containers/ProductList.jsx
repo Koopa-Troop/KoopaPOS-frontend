@@ -1,41 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Header from '../components/Header';
+import IconInput from '../components/IconInput';
+import POSProductCard from '../components/POSProductCard';
 import '../assets/styles/ProductList.scss';
 
 const ProductList = ({ products, history }) => (
   <>
-    <Header showSearchBox />
-    <section className='product__list_container'>
-      {
-        products.map((product, key) => (
-          <div
-            className='product__item'
-            key={product.id}
-            role='link'
-            tabIndex={100 + key}
-            onClick={() => { history.push(`/product/${product.id}`); }}
-          >
-            <div className='product__item__image' style={{ backgroundImage: `url(${product.image})` }} />
-            <div className='product__item__info'>
-              <div className='product__item__title'>
-                {product.name}
-              </div>
-              <div className='product__item__brand'>
-                {product.name}
-              </div>
-              <div className='productt__item__footer'>
-                <div className='product__item__price'>
-                  {`$${product.price}`}
-                </div>
-                <div className='product__item__availability'>
-                  {product.availability ? 'Disponible' : 'No disponible'}
-                </div>
-              </div>
-            </div>
-          </div>
-        ))
-      }
+    <Header />
+    <section className='section__search'>
+      <IconInput icon='fas fa-search' placeholder='Buscar Producto' />
+    </section>
+    <section className='product__list__container'>
+      { products.map((product, key) => (<POSProductCard product={product} key={key} />)) }
     </section>
   </>
 );
