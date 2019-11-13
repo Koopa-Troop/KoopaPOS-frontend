@@ -35,8 +35,20 @@ const reducer = (state, action) => {
         total: total - (removed[0].quantity * removed[0].price),
       });
     }
+    case 'SET_QUANTITY_TO_PRODUCT_CART': {
+      const { cart, quantity, total } = state;
+      const productIndex = cart.findIndex(product => product.id === action.payload.id);
+      const removed = JSON.parse(JSON.stringify(cart[productIndex]));
+      cart[productIndex].quantity = action.payload.quantity;
+      return ({
+        ...state,
+        cart,
+        quantity: quantity - removed.quantity + action.payload.quantity,
+        total: total - (removed.quantity * removed.price) + (action.payload.quantity * action.payload.price),
+      });
+    }
     case 'FIND_CUSTOMER': {
-      const customer = state.customers.find(customer => customer.email === action.payload.email);
+      const customer = state.customers.find(customer => customer.email === action.payload);
       return ({
         ...state,
         customer,

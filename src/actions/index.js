@@ -8,6 +8,11 @@ export const removeToCart = payload => ({
   payload,
 });
 
+export const setQuantityToProductCart = payload => ({
+  type: 'SET_QUANTITY_TO_PRODUCT_CART',
+  payload,
+});
+
 export const findCustomer = payload => ({
   type: 'FIND_CUSTOMER',
   payload,
@@ -20,6 +25,7 @@ export const resetCart = () => ({
 export default {
   addToCart,
   removeToCart,
+  setQuantityToProductCart,
   findCustomer,
   resetCart,
 };

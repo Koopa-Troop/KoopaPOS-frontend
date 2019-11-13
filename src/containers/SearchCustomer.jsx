@@ -2,12 +2,16 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { findCustomer } from '../actions';
 import '../assets/styles/SearchCustomer.scss';
+import IconInput from '../components/IconInput';
+import Button from '../components/Button';
+import Header from '../components/Header';
 
 const SearchCustomer = ({ customer, findCustomer, history }) => {
   const [form, setValues] = useState({
     email: '',
     fullname: '',
     phone: '',
+    search: '',
   });
   const handleInput = event => setValues({
     ...form,
@@ -19,47 +23,58 @@ const SearchCustomer = ({ customer, findCustomer, history }) => {
     history.goBack();
   };
 
-  console.log(form);
-
   return (
-    <form className='search__customer__form' onSubmit={handleSubmit}>
-      <div className='search__customer__input'>
-        <input
-          type='email'
-          name='email'
-          pattern='[^ @]*@[^ @]*'
-          onChange={handleInput}
-          placeholder='Correo'
-          defaultValue={customer.email}
-        />
-        <button type='button' className='search__customer__button' onClick={() => findCustomer(form)}>
-          <i className='fas fa-2x fa-search-plus' />
-        </button>
-      </div>
-      <div className='search__customer__input'>
-        <input
-          type='text'
-          name='fullname'
-          onChange={handleInput}
-          placeholder='Nombre completo'
-          defaultValue={customer.fullname}
-        />
-      </div>
-      <div className='search__customer__input'>
-        <input
-          type='number'
-          name='phone'
-          pattern='\d*'
-          onChange={handleInput}
-          placeholder='Teléfono'
-          defaultValue={customer.phone}
-        />
-      </div>
-      <div className='search__customer__submit'>
-        <input type='submit' value='Continuar' />
-      </div>
-    </form>
-  );
+    <>
+      <Header />
+      <section className='pos__search__customer'>
+        <form className='search__customer__form' onSubmit={handleSubmit}>
+          <div className='search__customer__input'>
+            <IconInput
+              type='email'
+              name='search'
+              pattern='[^ @]*@[^ @]*'
+              onChange={handleInput}
+              placeholder='Buscar por correo'
+            />
+            <Button
+              primary
+              outlined
+              onClick={ e => {
+                e.preventDefault();
+                findCustomer(form.search)
+              }}
+            >
+              Buscar cliente
+            </Button>
+            <IconInput
+              type='email'
+              name='email'
+              pattern='[^ @]*@[^ @]*'
+              onChange={handleInput}
+              placeholder='Correo'
+              defaultValue={customer.email}
+            />
+            <IconInput
+              type='text'
+              name='fullname'
+              onChange={handleInput}
+              placeholder='Nombre completo'
+              defaultValue={customer.fullname}
+            />
+            <IconInput
+              type='number'
+              name='phone'
+              pattern='\d*'
+              onChange={handleInput}
+              placeholder='Teléfono'
+              defaultValue={customer.phone}
+            />
+            <Button primary type='submit'>Buscar cliente</Button>
+          </div>
+        </form>
+      </section>
+    </>
+  )
 };
 
 const mapStateToProps = (state) => {

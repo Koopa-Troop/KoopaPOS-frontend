@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Header from '../components/Header';
 import IconInput from '../components/IconInput';
@@ -8,11 +9,17 @@ import '../assets/styles/ProductList.scss';
 const ProductList = ({ products, history }) => (
   <>
     <Header />
-    <section className='section__search'>
-      <IconInput icon='fas fa-search' placeholder='Buscar Producto' />
-    </section>
-    <section className='product__list__container'>
-      { products.map((product, key) => (<POSProductCard product={product} key={key} />)) }
+    <section className='pos__product__list'>
+      <section className='section__search'>
+        <IconInput icon='fas fa-search' placeholder='Buscar Producto' />
+      </section>
+      <section className='product__list__container'>
+        { products.map(product => (
+          <Link to={`/product/${product.id}`} key={product.id}>
+            <POSProductCard product={product} />
+          </Link>
+        ))}
+      </section>
     </section>
   </>
 );

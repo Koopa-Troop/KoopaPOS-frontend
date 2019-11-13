@@ -4,3 +4,9 @@ body {
   font-family: 'Roboto', sans-serif;
   background-color: #f6f8fa;
 }
+
+#app {
+  display: flex;
+  width: 100vw;
+  flex-direction: column;
+}

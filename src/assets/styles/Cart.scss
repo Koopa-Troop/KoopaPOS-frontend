@@ -1,91 +1,43 @@
-section.cart__product__pay {
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
-  justify-content: flex-start;
-  width: 100%;
-  & .cart__product__total {
-    margin-left: 16px;
-  }
-  & .cart__product__button {
+@import './variables.scss';
+
+section.pos__cart {
+  padding: 16px 8px 0px;
+  & > section.cart__product__pay {
     display: flex;
     align-items: center;
-    flex-direction: row;
-    justify-content: center;
-    width: 100%;
-    & .checkout__button {
-      display: flex;
-      align-items: center;
-      flex-direction: row;
-      justify-content: center;
-      text-align: center;
-      margin-top: 20px;
-      background-color: #ff8900;
-      width: 272px;
-      height: 44px;
-      text-decoration: none;
-      color: white;
-    }
-  }
-}
-section.cart__product__list {
-  margin-left: 16px;
-  margin-top: 20px;
-  & .product__item {
-    display: flex;
-    align-items: flex-start;
     flex-direction: column;
     justify-content: flex-start;
     width: 100%;
-    border-bottom: 1px solid #707070;
-    &:first-child {
-      border-top: 1px solid #707070;
-    }
-    & .product__item__info {
+    & > .cart__product__total {
       display: flex;
       align-items: flex-start;
       flex-direction: row;
       justify-content: flex-start;
       width: 100%;
-      margin-left: 16px;
-      & picture {
-        width: 60px;
-        height: 60px;
-        & img {
-          object-fit: cover;
-          width: auto;
-          height: 100%;
+      margin-bottom: 16px;
+      & > div {
+        font-size: 1.1rem;
+        & > span {
+          color: $secondary-color;
+          font-weight: bold;
+          font-size: 1.2rem;
         }
       }
     }
-  }
-  & .product__item__cart {
-    margin-bottom: 12px;
-    margin-top:6px;
-    & input {
-      background-color: transparent;
-      border: 1px solid rgba(0,0,0,.25);
-      border-radius: 4px;
-      color: black;
-      font-family: 'Muli', sans-serif;
-      font-size: 16px;
-      height: 28px;
-      outline: none;
-      width: 60px;
-      &::placeholder {
-        padding-left: 24px;
-        color: #A2A2A2;
-        font-size: 14px;
+    & > .cart__product__control{
+      width: 85%;
+      margin-bottom: 16px;
+      & > .cart__products__pay__exchange {
+        text-align: center;
+        margin: 8px;
       }
-    }
-    & button {
-      margin-left: 12px;
-      background-color: #ff8900;
-      text-decoration: none;
-      border: none;
-      color: white;
-      font-size: 1rem;
-      padding: 4px 12px;
+      & > .cart__customer__info {
+        text-align: center;
+        & > span {
+          color: $secondary-color;
+          font-weight: bold;
+        }
+      }
     }
   }
 }

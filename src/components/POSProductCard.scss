@@ -1,4 +1,8 @@
+@import '../assets/styles/variables.scss';
+
 section.pos__product__card {
+  color: inherit;
+  text-decoration: inherit;
   height: 117px;
   width: 100%;
   margin-bottom: 6px;
@@ -7,6 +11,9 @@ section.pos__product__card {
   -moz-box-shadow:  0px -1px 8px rgba(0,0,0, 0.2);
   border-radius: 8px;
   background-color: white;
+  &.checkout {
+    height: inherit;
+  }
   div.product__item {
     width: 100%;
     height: 100%;
@@ -15,7 +22,7 @@ section.pos__product__card {
     align-items: flex-start;
     justify-content: flex-start;
     flex-wrap: wrap;
-    & > .product__item__image {
+    & > picture.product__item__image {
       height: 100%;
       & > img {
         max-height: 101px;
@@ -57,6 +64,18 @@ section.pos__product__card {
           justify-content: flex-end;
           font-size: 0.75rem;
           color: #464D53;
+        }
+        & > .product__item__checkout {
+          display: flex;
+          justify-content: flex-end;
+          flex-direction: row;
+          & > .product__item__checkout__quantity {
+            width: 48px;
+          }
+          & > .product__item__checkout__trash {
+            width: 112px;
+            margin-left:16px
+          }
         }
       }
     }

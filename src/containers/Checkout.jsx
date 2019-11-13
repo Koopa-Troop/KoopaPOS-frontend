@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import IconInput from '../components/IconInput';
+import Button from '../components/Button';
+import Header from '../components/Header';
 import { resetCart } from '../actions';
-import '../assets/styles/Checkout.scss';
 
 const Checkout = ({ quantity, total, customer, history, resetCart }) => {
   const [pay = 0, changePay] = useState();
@@ -21,46 +21,54 @@ const Checkout = ({ quantity, total, customer, history, resetCart }) => {
   };
 
   return (
-    <section className='checkout__products'>
-      <div className='checkout__products__total'>
-        Subtotal (
-        {quantity}
-        productos) &nbsp;
-        <span>
-          $
-          {total}
-        </span>
-      </div>
-      <div className='checkout__products__pay__control'>
-        <IconInput
-          icon='far fa-money-bill-alt'
-          placeholder='Pago'
-          type='number'
-          pattern='\d*'
-          onChange={event => changePay(Number(event.target.value))}
-        />
-      </div>
-      <div className='checkout__products__pay__exchange'>
-        Cambio: &nbsp;
-        {exChange.toFixed(2)}
-      </div>
-      { customerHasBeenSelected &&
-        <div className='checkout__products__pay__customer'>{customer.fullname}</div>
-      }
-      <div className='checkout__products__pay__actions'>
-        { !customerHasBeenSelected && (
-          <Link to='/search-customer' className='undecored'>
-            <div className='link__button'>Buscar Cliente</div>
-          </Link>
-        )}
-        <Link to='/' className='undecored'>
-          <div className='link__button'>Cancelar</div>
-        </Link>
-        <div onClick={handlePay} role='link' tabIndex={0}>
-          <div className='link__button'>Continuar</div>
-        </div>
-      </div>
-    </section>
+    <>
+      <Header />
+      <section className='pos__cart'>
+        <section className='cart__product__pay'>
+          <div className='cart__product__total'>
+            <div>
+              Subtotal (
+              {quantity}
+              productos) &nbsp;
+              <span>
+                $
+                {total.toFixed(2)}
+              </span>
+            </div>
+          </div>
+          <div className='cart__product__control'>
+            <IconInput
+              icon='far fa-money-bill-alt'
+              placeholder='Pago'
+              type='number'
+              pattern='\d*'
+              onChange={event => changePay(Number(event.target.value))}
+            />
+            <div className='cart__products__pay__exchange'>
+              Cambio: &nbsp;
+              {exChange.toFixed(2)}
+            </div>
+            {customerHasBeenSelected && (
+              <div className='cart__customer__info'>
+                Cliente:&nbsp;
+                <span>{customer.fullname}</span>
+              </div>
+            )}
+          </div>
+          { !customerHasBeenSelected && (
+            <div className='cart__product__control'>
+              <Button to='/search-customer' primary outlined>Buscar Cliente</Button>
+            </div>
+          )}
+          <div className='cart__product__control'>
+            <Button onClick={handlePay} primary>Continuar</Button>
+          </div>
+          <div className='cart__product__control'>
+            <Button to='/' secondary outlined>Regresar</Button>
+          </div>
+        </section>
+      </section>
+    </>
   );
 };
 

@@ -7,6 +7,7 @@ import Cart from '../containers/Cart';
 import Checkout from '../containers/Checkout';
 import SearchCustomer from '../containers/SearchCustomer';
 import Print from '../containers/Print';
+import Prueba from '../containers/Prueba';
 
 const App = () => (
   <BrowserRouter>
@@ -18,6 +19,7 @@ const App = () => (
       <Route exact path='/checkout' component={Checkout} />
       <Route exact path='/search-customer' component={SearchCustomer} />
       <Route exact path='/print' component={Print} />
+      <Route exact path='/prueba' component={Prueba} />
     </Switch>
   </BrowserRouter>
 );
