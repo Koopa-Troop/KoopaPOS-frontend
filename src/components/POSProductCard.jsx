@@ -40,7 +40,7 @@ const POSProductCard = ({ product, checkout, onChangeCheckout, removeToCart }) =
                 </div>
               )
             }
-            {/*<div className='product__item__availability'>{product.availability ? 'Disponible' : 'No disponible'}</div>*/}
+            {<div className='product__item__availability'>{product.availability ? 'Disponible' : 'No disponible'}</div>}
           </div>
         </div>
       </div>

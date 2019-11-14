@@ -21,54 +21,51 @@ const Checkout = ({ quantity, total, customer, history, resetCart }) => {
   };
 
   return (
-    <>
-      <Header />
-      <section className='pos__cart'>
-        <section className='cart__product__pay'>
-          <div className='cart__product__total'>
-            <div>
-              Subtotal (
-              {quantity}
-              productos) &nbsp;
-              <span>
-                $
-                {total.toFixed(2)}
-              </span>
-            </div>
+    <section className='pos__cart'>
+      <section className='cart__product__pay'>
+        <div className='cart__product__total'>
+          <div>
+            Subtotal (
+            {quantity}
+            productos) &nbsp;
+            <span>
+              $
+              {total.toFixed(2)}
+            </span>
           </div>
-          <div className='cart__product__control'>
-            <IconInput
-              icon='far fa-money-bill-alt'
-              placeholder='Pago'
-              type='number'
-              pattern='\d*'
-              onChange={event => changePay(Number(event.target.value))}
-            />
-            <div className='cart__products__pay__exchange'>
-              Cambio: &nbsp;
-              {exChange.toFixed(2)}
-            </div>
-            {customerHasBeenSelected && (
-              <div className='cart__customer__info'>
-                Cliente:&nbsp;
-                <span>{customer.fullname}</span>
-              </div>
-            )}
+        </div>
+        <div className='cart__product__control'>
+          <IconInput
+            icon='far fa-money-bill-alt'
+            placeholder='Pago'
+            type='number'
+            pattern='\d*'
+            onChange={event => changePay(Number(event.target.value))}
+          />
+          <div className='cart__products__pay__exchange'>
+            Cambio: &nbsp;
+            {exChange.toFixed(2)}
           </div>
-          { !customerHasBeenSelected && (
-            <div className='cart__product__control'>
-              <Button to='/search-customer' primary outlined>Buscar Cliente</Button>
+          {customerHasBeenSelected && (
+            <div className='cart__customer__info'>
+              Cliente:&nbsp;
+              <span>{customer.fullname}</span>
             </div>
           )}
+        </div>
+        { !customerHasBeenSelected && (
           <div className='cart__product__control'>
-            <Button onClick={handlePay} primary>Continuar</Button>
+            <Button to='/search-customer' primary outlined>Buscar Cliente</Button>
           </div>
-          <div className='cart__product__control'>
-            <Button to='/' secondary outlined>Regresar</Button>
-          </div>
-        </section>
+        )}
+        <div className='cart__product__control'>
+          <Button onClick={handlePay} primary>Continuar</Button>
+        </div>
+        <div className='cart__product__control'>
+          <Button to='/' secondary outlined>Regresar</Button>
+        </div>
       </section>
-    </>
+    </section>
   );
 };
 
