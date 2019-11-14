@@ -3,6 +3,9 @@ body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
   background-color: #f6f8fa;
+  &.app__overflow__hidden {
+    overflow: hidden;
+  }
 }
 
 #app {
@@ -12,3 +15,4 @@ body {
   flex-direction: column;
   justify-content: flex-start;
 }
+

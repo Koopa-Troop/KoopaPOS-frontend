@@ -22,6 +22,10 @@ export const resetCart = () => ({
   type: 'RESET_CART',
 });
 
+export const showMenu = () => ({
+  type: 'SHOW_MENU',
+});
+
 export default {
   addToCart,
   removeToCart,

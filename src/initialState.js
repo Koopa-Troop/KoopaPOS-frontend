@@ -1,4 +1,5 @@
 const initialState = {
+  menu: false,
   search: '',
   quantity: 10,
   total: 15.2,

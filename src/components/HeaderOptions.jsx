@@ -1,20 +1,17 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-const Options = ({ quantity }) => (
-  <>
-    <Link to='/cart' className='undecored'>
-      <i className='fas fa-shopping-cart'>
-        <span className='icon__badge'>{quantity > 9 ? '+9' : quantity}</span>
-      </i>
-    </Link>
-    <i className='fas fa-bars' />
-  </>
-);
+const HeaderOptions = ({ quantity, showMenu }) => {
+  return (
+    <>
+      <Link to='/cart' className='undecored'>
+        <i className='fas fa-shopping-cart'>
+          <span className='icon__badge'>{quantity > 9 ? '+9' : quantity}</span>
+        </i>
+      </Link>
+      <i className='fas fa-bars' onClick={showMenu} role='button' tabIndex={-1} />
+    </>
+  );
+};
 
-const mapStateToProps = state => ({
-  quantity: state.quantity,
-})
-
-export default connect(mapStateToProps, null)(Options);
+export default HeaderOptions;

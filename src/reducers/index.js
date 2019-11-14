@@ -62,6 +62,11 @@ const reducer = (state, action) => {
         quantity: 0,
         total: 0,
       });
+    case 'SHOW_MENU':
+      return ({
+        ...state,
+        menu: !state.menu,
+      })
     default:
       return state;
   }
