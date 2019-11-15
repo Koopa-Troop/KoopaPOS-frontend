@@ -26,10 +26,23 @@ export const showMenu = () => ({
   type: 'SHOW_MENU',
 });
 
-export default {
-  addToCart,
-  removeToCart,
-  setQuantityToProductCart,
-  findCustomer,
-  resetCart,
-};
+export const loginSubmit = payload => ({
+  type: 'LOGIN_SUBMIT',
+  payload,
+});
+
+export const logoutSubmit = () => ({
+  type: 'LOGOUT_SUBMIT',
+});
+
+export const createProduct = payload => ({
+  type: 'CREATE_PRODUCT',
+  payload,
+});
+
+export const updateProduct = payload => ({
+  type: 'UPDATE_PRODUCT',
+  payload,
+});
+
+export default {};

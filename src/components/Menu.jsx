@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import Logo from './Logo';
 import './Menu.scss';
 
-const Menu = ({ showMenu }) => {
+const Menu = ({ showMenu, logoutClick }) => {
   useEffect(() => {
     document.getElementsByTagName('body')[0].className = 'app__overflow__hidden';
     return () => {
@@ -23,21 +23,31 @@ const Menu = ({ showMenu }) => {
         </div>
       </div>
       <div className='menu__items'>
-        <MenuItem to='/' icon='fas fa-store'>Punto de Venta</MenuItem>
-        <MenuItem to='/login' icon='far fa-map'>Administrador</MenuItem>
-        <MenuItem to='/login' icon='fas fa-chart-pie'>Dashboard</MenuItem>
-        <MenuItem to='/login' icon='fas fa-user-circle'>Cuenta</MenuItem>
-        <MenuItem to='/login' icon='fas fa-sign-out-alt'>Cerrar sesión</MenuItem>
+        <MenuItem to='/' strict exact icon='fas fa-store' onClick={showMenu}>Punto de Venta</MenuItem>
+        <MenuItem to='/products' icon='far fa-map' onClick={showMenu}>Productos</MenuItem>
+        <MenuItem to='/dashboard' icon='fas fa-chart-pie' onClick={showMenu}>Dashboard</MenuItem>
+        {/*<MenuItem to='/login' icon='fas fa-user-circle' onClick={showMenu}>Cuenta</MenuItem>*/}
+        <MenuItem to='/login' icon='fas fa-sign-out-alt' onClick={logoutClick}>Cerrar sesión</MenuItem>
       </div>
     </nav>
   );
-}
+};
 
-const MenuItem = ({ to, icon, children }) => (
-  <NavLink to={to} className='menu__item' activeClassName='active'>
-    <i className={icon} />
-    {children}
-  </NavLink>
-);
+const MenuItem = ({ to, icon, children, onClick, ...otherProps }) => {
+  return (
+    <NavLink
+      to={to}
+      onClick={() => {
+        onClick();
+      }}
+      className='menu__item'
+      activeClassName='active'
+      {...otherProps}
+    >
+      <i className={icon} />
+      {children}
+    </NavLink>
+  );
+};
 
 export default Menu;

@@ -2,9 +2,9 @@ import React from 'react';
 import className from 'classnames';
 import IconInput from './IconInput';
 import Button from './Button';
-import './POSProductCard.scss';
+import './ProductCard.scss';
 
-const POSProductCard = ({ product, checkout, onChangeCheckout, removeToCart }) => {
+const ProductCard = ({ product, checkout, onChangeCheckout, removeToCart, hideAvailability }) => {
   const productCardClassName = className('pos__product__card', {
     checkout,
   });
@@ -40,7 +40,11 @@ const POSProductCard = ({ product, checkout, onChangeCheckout, removeToCart }) =
                 </div>
               )
             }
-            {<div className='product__item__availability'>{product.availability ? 'Disponible' : 'No disponible'}</div>}
+            {!hideAvailability && (
+              <div className='product__item__availability'>
+                {product.availability ? 'Disponible' : 'No disponible'}
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -48,4 +52,4 @@ const POSProductCard = ({ product, checkout, onChangeCheckout, removeToCart }) =
   )
 }
 
-export default POSProductCard;
+export default ProductCard;

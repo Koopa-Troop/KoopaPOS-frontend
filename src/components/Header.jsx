@@ -1,14 +1,21 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Logo from './Logo';
 import Menu from './Menu';
 import HeaderOptions from './HeaderOptions';
-import { showMenu } from '../actions';
+import { showMenu, logoutSubmit } from '../actions';
 import './Header.scss';
 
-const Header = ({ children, quantity, menu, showMenu }) => {
-  if (['/sign', '/login', '/print'].indexOf(window.location.pathname) > -1) return children;
+const Header = ({ quantity, menu, showMenu, logoutSubmit }) => {
+  const location = useLocation(),
+    history = useHistory();
+  const logoutClick = () => {
+    showMenu();
+    history.push('/login');
+    logoutSubmit();
+  };
+  if (['/sign', '/login', '/print'].indexOf(location.pathname) > -1) return null;
   return (
     <>
       <header className='header__application'>
@@ -21,11 +28,10 @@ const Header = ({ children, quantity, menu, showMenu }) => {
           <HeaderOptions quantity={quantity} showMenu={showMenu} />
         </div>
       </header>
-      {children}
-      {menu && <Menu showMenu={showMenu} />}
+      {menu && <Menu showMenu={showMenu} logoutClick={logoutClick} />}
     </>
   );
-}
+};
 
 const mapStateToProps = state => ({
   quantity: state.quantity,
@@ -34,6 +40,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
   showMenu,
+  logoutSubmit,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

@@ -66,7 +66,34 @@ const reducer = (state, action) => {
       return ({
         ...state,
         menu: !state.menu,
-      })
+      });
+    case 'LOGIN_SUBMIT':
+      return ({
+        ...state,
+        user: action.payload,
+      });
+    case 'LOGOUT_SUBMIT':
+      return ({
+        ...state,
+        user: {},
+      });
+    case 'CREATE_PRODUCT':
+      return ({
+        ...state,
+        products: [...state.products, action.payload],
+      });
+    case 'UPDATE_PRODUCT': {
+      const { products } = state;
+      const productIndex = products.findIndex(product => product.id === action.payload.id);
+      const updatedProducts = [
+        ...products,
+      ];
+      updatedProducts[productIndex] = action.payload;
+      return ({
+        ...state,
+        products: [...updatedProducts],
+      });
+    }
     default:
       return state;
   }

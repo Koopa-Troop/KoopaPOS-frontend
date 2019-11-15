@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const HeaderOptions = ({ quantity, showMenu }) => {
   return (
     <>
-      <Link to='/cart' className='undecored'>
+      <Link to='/pos/cart' className='undecored'>
         <i className='fas fa-shopping-cart'>
           <span className='icon__badge'>{quantity > 9 ? '+9' : quantity}</span>
         </i>

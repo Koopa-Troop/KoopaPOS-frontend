@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { findCustomer } from '../actions';
-import '../assets/styles/SearchCustomer.scss';
-import IconInput from '../components/IconInput';
-import Button from '../components/Button';
-import Header from '../components/Header';
+import { findCustomer } from '../../actions';
+import '../../assets/styles/POS/SearchCustomer.scss';
+import IconInput from '../../components/IconInput';
+import Button from '../../components/Button';
 
 const SearchCustomer = ({ customer, findCustomer, history }) => {
   const [form, setValues] = useState({
@@ -37,7 +36,7 @@ const SearchCustomer = ({ customer, findCustomer, history }) => {
           <Button
             primary
             outlined
-            onClick={ e => {
+            onClick={(e) => {
               e.preventDefault();
               findCustomer(form.search)
             }}
@@ -71,7 +70,7 @@ const SearchCustomer = ({ customer, findCustomer, history }) => {
         </div>
       </form>
     </section>
-  )
+  );
 };
 
 const mapStateToProps = (state) => {

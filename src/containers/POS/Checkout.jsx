@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import IconInput from '../components/IconInput';
-import Button from '../components/Button';
-import Header from '../components/Header';
-import { resetCart } from '../actions';
+import IconInput from '../../components/IconInput';
+import Button from '../../components/Button';
+import { resetCart } from '../../actions';
 
 const Checkout = ({ quantity, total, customer, history, resetCart }) => {
   const [pay = 0, changePay] = useState();
@@ -16,7 +15,7 @@ const Checkout = ({ quantity, total, customer, history, resetCart }) => {
       console.log('validation');
     } else {
       resetCart();
-      history.push('/print');
+      history.push('/pos/print');
     }
   };
 
@@ -55,7 +54,7 @@ const Checkout = ({ quantity, total, customer, history, resetCart }) => {
         </div>
         { !customerHasBeenSelected && (
           <div className='cart__product__control'>
-            <Button to='/search-customer' primary outlined>Buscar Cliente</Button>
+            <Button to='/pos/search-customer' primary outlined>Buscar Cliente</Button>
           </div>
         )}
         <div className='cart__product__control'>

@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import Header from '../components/Header';
-import { addToCart } from '../actions';
-import Button from '../components/Button';
-import IconInput from '../components/IconInput';
-import '../assets/styles/Product.scss';
+import { addToCart } from '../../actions';
+import Button from '../../components/Button';
+import IconInput from '../../components/IconInput';
+import '../../assets/styles/POS/Product.scss';
 
 const Product = ({ product, addToCart, history }) => {
   const [quantity, setQuantity] = useState();

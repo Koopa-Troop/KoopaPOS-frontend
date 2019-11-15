@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import '../assets/styles/Print.scss';
+import '../../assets/styles/POS/Print.scss';
 
 const Print = ({ history }) => {
   useEffect(() => {

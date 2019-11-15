@@ -1,10 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Header from '../components/Header';
-import Button from '../components/Button';
-import POSProductCard from '../components/POSProductCard';
-import { removeToCart, setQuantityToProductCart } from '../actions';
-import '../assets/styles/Cart.scss';
+import Button from '../../components/Button';
+import ProductCard from '../../components/ProductCard';
+import { removeToCart, setQuantityToProductCart } from '../../actions';
+import '../../assets/styles/POS/Cart.scss';
 
 const Cart = ({ quantity, total, cart, removeToCart, setQuantity }) => (
   <section className='pos__cart'>
@@ -21,7 +20,7 @@ const Cart = ({ quantity, total, cart, removeToCart, setQuantity }) => (
         </div>
       </div>
       <div className='cart__product__control'>
-        <Button to='/checkout' primary>
+        <Button to='/pos/checkout' primary>
           Pagar
         </Button>
       </div>
@@ -33,7 +32,8 @@ const Cart = ({ quantity, total, cart, removeToCart, setQuantity }) => (
     </section>
     <section className='cart__product__list'>
       {cart.map(product => (
-        <POSProductCard
+        <ProductCard
+          hideAvailability
           checkout
           key={product.id}
           product={product}
@@ -41,14 +41,13 @@ const Cart = ({ quantity, total, cart, removeToCart, setQuantity }) => (
             ...product,
             quantity: Number(event.target.value),
           })}
-          removeToCart={removeToCart}
+          removeToCart={() => removeToCart(product)}
         />
       ))}
     </section>
   </section>
 );
 const mapStateToProps = (state) => {
-  console.log(state.cart);
   return {
     cart: state.cart,
     quantity: state.quantity,
