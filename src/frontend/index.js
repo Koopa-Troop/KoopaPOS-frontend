@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { createStore, compose } from 'redux';
 import App from './routes/App';
 import reducer from './reducers';
-import '../node_modules/@fortawesome/fontawesome-free/css/all.min.css';
+import '../../node_modules/@fortawesome/fontawesome-free/css/all.min.css';
 import './assets/styles/main.scss';
 import initialState from './initialState';
 

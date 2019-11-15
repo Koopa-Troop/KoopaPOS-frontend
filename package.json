@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode production",
-    "start": "webpack-dev-server --open --mode development --host 0.0.0.0"
+    "start": "webpack-dev-server --open --mode development --host 0.0.0.0 --config webpack-dev-server.config.js"
   },
   "repository": {
     "type": "git",
@@ -20,7 +20,7 @@
   "author": "eriksape",
   "license": "MIT",
   "dependencies": {
-    "@babel/register": "7.4.4",
+    "@babel/register": "^7.4.4",
     "@fortawesome/fontawesome-free": "^5.11.2",
     "asset-require-hook": "^1.2.0",
     "autoprefixer": "9.6.1",
@@ -29,7 +29,7 @@
     "babel-plugin-transform-object-assign": "6.22.0",
     "classnames": "^2.2.6",
     "compression-webpack-plugin": "^3.0.0",
-    "dotenv": "8.0.0",
+    "dotenv": "^8.0.0",
     "eslint": "^6.0.1",
     "eslint-config": "^0.3.0",
     "eslint-config-airbnb": "^17.1.1",
@@ -42,7 +42,6 @@
     "history": "^4.10.1",
     "ignore-styles": "^5.0.1",
     "md5": "^2.2.1",
-    "nodemon": "1.19.1",
     "postcss-loader": "3.0.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
@@ -55,8 +54,6 @@
     "redux": "^4.0.4",
     "terser-webpack-plugin": "^2.1.2",
     "uuid": "^3.3.3",
-    "webpack-dev-middleware": "3.7.0",
-    "webpack-hot-middleware": "2.25.0",
     "webpack-manifest-plugin": "^2.2.0"
   },
   "devDependencies": {
@@ -70,10 +67,13 @@
     "html-webpack-plugin": "^3.2.0",
     "mini-css-extract-plugin": "^0.7.0",
     "node-sass": "^4.12.0",
+    "nodemon": "^1.19.1",
     "sass-loader": "^7.1.0",
-    "webpack": "^4.35.3",
+    "webpack": "^4.41.2",
     "webpack-cli": "^3.3.5",
-    "webpack-dev-server": "^3.7.2"
+    "webpack-dev-middleware": "^3.7.0",
+    "webpack-dev-server": "^3.7.2",
+    "webpack-hot-middleware": "^2.25.0"
   },
   "bugs": {
     "url": "https://github.com/Koopa-Troop/KoopaPOS/issues"
