@@ -1,11 +1,11 @@
 import React from 'react';
-import className from 'classnames';
+import cx from 'classnames';
 import IconInput from './IconInput';
 import Button from './Button';
 import './ProductCard.scss';
 
 const ProductCard = ({ product, checkout, onChangeCheckout, removeToCart, hideAvailability }) => {
-  const productCardClassName = className('pos__product__card', {
+  const productCardClassName = cx('pos__product__card', {
     checkout,
   });
   return (
