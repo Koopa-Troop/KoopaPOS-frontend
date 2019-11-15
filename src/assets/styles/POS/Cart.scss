@@ -1,0 +1,43 @@
+@import './../variables.scss';
+
+section.pos__cart {
+  padding: 16px 8px 0px;
+  & > section.cart__product__pay {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    & > .cart__product__total {
+      display: flex;
+      align-items: flex-start;
+      flex-direction: row;
+      justify-content: flex-start;
+      width: 100%;
+      margin-bottom: 16px;
+      & > div {
+        font-size: 1.1rem;
+        & > span {
+          color: $secondary-color;
+          font-weight: bold;
+          font-size: 1.2rem;
+        }
+      }
+    }
+    & > .cart__product__control{
+      width: 85%;
+      margin-bottom: 16px;
+      & > .cart__products__pay__exchange {
+        text-align: center;
+        margin: 8px;
+      }
+      & > .cart__customer__info {
+        text-align: center;
+        & > span {
+          color: $secondary-color;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}

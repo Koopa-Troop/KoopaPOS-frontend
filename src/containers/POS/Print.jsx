@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import '../assets/styles/Print.scss';
+import '../../assets/styles/POS/Print.scss';
 
 const Print = ({ history }) => {
   useEffect(() => {
     setTimeout(() => {
       history.push('/');
-    }, 1000 * 15);
+    }, 1000 * 3);
   });
   return (
     <section className='print__page'>

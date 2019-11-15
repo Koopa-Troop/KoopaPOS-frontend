@@ -1,4 +1,8 @@
 const initialState = {
+  user: {
+    email: 1,
+  },
+  menu: false,
   search: '',
   quantity: 10,
   total: 15.2,

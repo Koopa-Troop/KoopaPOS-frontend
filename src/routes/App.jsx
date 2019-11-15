@@ -1,23 +1,34 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch } from 'react-router-dom';
 import Login from '../containers/Login';
-import ProductList from '../containers/ProductList';
-import Product from '../containers/Product';
-import Cart from '../containers/Cart';
-import Checkout from '../containers/Checkout';
-import SearchCustomer from '../containers/SearchCustomer';
-import Print from '../containers/Print';
+import POSProductList from '../containers/POS/ProductList';
+import POSProduct from '../containers/POS/Product';
+import POSCart from '../containers/POS/Cart';
+import POSCheckout from '../containers/POS/Checkout';
+import POSSearchCustomer from '../containers/POS/SearchCustomer';
+import POSPrint from '../containers/POS/Print';
+import Products from '../containers/Products';
+import ProductForm from '../containers/ProductForm';
+import Dashboard from '../containers/Dashboard';
+import Header from '../components/Header';
+import AuthenticatedRoute from './AuthenticatedRoute';
 
 const App = () => (
   <BrowserRouter>
+    <Header />
     <Switch>
-      <Route exact path='/login' component={Login} />
-      <Route exact path='/' component={ProductList} />
-      <Route exact path='/product/:id' component={Product} />
-      <Route exact path='/cart' component={Cart} />
-      <Route exact path='/checkout' component={Checkout} />
-      <Route exact path='/search-customer' component={SearchCustomer} />
-      <Route exact path='/print' component={Print} />
+      <AuthenticatedRoute exact path='/login' component={Login} />
+      <AuthenticatedRoute exact path='/sign' component={Login} />
+      <AuthenticatedRoute exact authenticated path='/' component={POSProductList} />
+      <AuthenticatedRoute exact authenticated path='/products' component={Products} />
+      <AuthenticatedRoute exact authenticated path='/product/create' component={ProductForm} />
+      <AuthenticatedRoute exact authenticated path='/product/:id/edit' component={ProductForm} />
+      <AuthenticatedRoute exact authenticated path='/dashboard' component={Dashboard} />
+      <AuthenticatedRoute exact authenticated path='/pos/product/:id' component={POSProduct} />
+      <AuthenticatedRoute exact authenticated path='/pos/cart' component={POSCart} />
+      <AuthenticatedRoute exact authenticated path='/pos/checkout' component={POSCheckout} />
+      <AuthenticatedRoute exact authenticated path='/pos/search-customer' component={POSSearchCustomer} />
+      <AuthenticatedRoute exact authenticated path='/pos/print' component={POSPrint} />
     </Switch>
   </BrowserRouter>
 );

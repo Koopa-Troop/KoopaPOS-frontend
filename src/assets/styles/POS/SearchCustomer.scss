@@ -1,0 +1,12 @@
+@import './../variables.scss';
+
+section.pos__search__customer {
+  padding: 16px 32px 0px;
+  & > form.search__customer__form {
+    & > .search__customer__input {
+      & > div, & > button {
+        margin-bottom: 16px;
+      }
+    }
+  }
+}

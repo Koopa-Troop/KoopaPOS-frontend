@@ -1,0 +1,53 @@
+@import '../assets/styles/variables.scss';
+.btn{
+  text-transform: uppercase;
+  border-radius: 6px;
+  width:100%;
+  margin-left:0;
+  margin-right:0;
+  padding: 13px 0;
+  display:block;
+  text-align:center;
+  text-decoration: none;
+  color: inherit;
+  font-weight: bold;
+  font-size: 1.2rem;
+    /* Corrects font smoothing for webkit */
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+
+  /* Corrects inability to style clickable `input` types in iOS */
+  -webkit-appearance: none;
+  &.btn__small {
+    font-size: 0.85rem;
+    padding: 5px 0;
+  }
+  &.btn__primary {
+    background-color: $primary-color;
+    color: $primary-color-text;
+    border-color: $primary-color;
+  }
+  &.btn__secondary {
+    background-color: $secondary-color;
+    color: $secondary-color-text;
+    border-color: $secondary-color;
+  }
+  &.btn__black {
+    color: #FFFFFF;
+    background-color: #1B1B1B;
+    border-radius: 100px;
+    font-size: 1rem;
+    font-weight: normal;
+  }
+  &.outlined {
+    background-color: transparent;
+    &.btn__primary{
+      color: $primary-color;
+      border: 1px solid;
+    }
+    &.btn__secondary{
+      color: $secondary-color;
+      border: 1px solid;
+    }
+  }
+}

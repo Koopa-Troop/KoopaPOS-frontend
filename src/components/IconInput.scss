@@ -1,13 +1,33 @@
+@import '../assets/styles/variables.scss';
+
 .icon__input {
   background: white;
   display: flex;
   justify-content: space-between;
   padding: 0.75em;
   border-radius: 4px;
-  box-shadow:  0px 3px 16px rgba(0,0,0, 0.20);
-  -webkit-box-shadow:  0px 3px 16px rgba(0,0,0, 0.20);
-  -moz-box-shadow:  0px 3px 16px rgba(0,0,0, 0.20);
-  & input {
+  box-shadow: 0px 3px 16px rgba(0,0,0, 0.20);
+  -webkit-box-shadow: 0px 3px 16px rgba(0,0,0, 0.20);
+  -moz-box-shadow: 0px 3px 16px rgba(0,0,0, 0.20);
+  &.input__small {
+    padding: 0.4rem;
+    &.ios__platform{
+      padding: 2px;
+    }
+    & input {
+      font-size: 0.85rem;
+    }
+  }
+  &.not__icon {
+    & > input {
+      padding-left: 0px;
+    }
+  }
+  & > i {
+    flex: 1;
+  }
+  & > input {
+    font-size: 1.2rem;
     border: 0;
     width: 100%;
     padding-left: 22px;

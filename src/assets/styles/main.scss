@@ -3,4 +3,16 @@ body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
   background-color: #f6f8fa;
+  &.app__overflow__hidden {
+    overflow: hidden;
+  }
 }
+
+#app {
+  display: flex;
+  width: 100vw;
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+

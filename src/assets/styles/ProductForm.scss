@@ -1,0 +1,48 @@
+@import './variables.scss';
+
+form.product__form {
+  padding: 0px 32px;
+  margin-top: 32px;
+  & > .product__form__image {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 16px;
+    & > .product__form__picture {
+      border: 1px dashed;
+      border-radius: 8px;
+      width: 124px;
+      height: 124px;
+      margin-right: 32px;
+      text-align: center;
+      & > picture {
+        & > img {
+          max-height: 124px;
+          min-height: 124px;
+          width: auto;
+          max-width: 124px;
+        }
+      }
+    }
+    & > .file__input {
+      flex: 1;
+    }
+  }
+
+  & > .product__form__inputs {
+    & > textarea {
+      height: 80px;
+      width: 99%;
+      border-radius: 4px;
+      margin-bottom: 16px;
+    }
+  }
+
+  & > .product__form__buttons {
+    margin-top: 64px;
+    & > a {
+      margin-bottom: 16px;
+    }
+  }
+}

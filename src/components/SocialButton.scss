@@ -1,27 +1,35 @@
-.social__button {
-  width: 271px;
-  height: 44px;
+@import '../assets/styles/variables.scss';
+
+picture.social__button {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
   background: red;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  color: white;
+  justify-content: center;
   flex-direction: row;
-  & img {
-    margin: 14px 0px 14px 20px;
-    width: 16px;
-    height: 14px;
-  }
-  & span {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    text-transform: capitalize;
-  }
+  background: white;
+  border: 1px solid #70707033;
+  box-shadow: 0px 5px 5px rgba(0,0,0, 0.05);
+  -webkit-box-shadow: 0px 5px 5px rgba(0,0,0, 0.05);
+  -moz-box-shadow: 0px 5px 5px rgba(0,0,0, 0.05);
   &.facebook {
-    background: #4458B4;
+    & > img {
+      height: 30px;
+      width: auto;
+    }
+  }
+  &.google {
+    & > img {
+      height: 32px;
+      width: auto;
+    }
   }
   &.twitter {
-    background: #39BAF0;
+    & > img {
+      height: 26px;
+      width: auto;
+    }
   }
 }
