@@ -5,9 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --mode production",
+    "build": "webpack-cli --config webpack.config.prod.js --colors",
     "start": "webpack-dev-server --open --mode development --host 0.0.0.0 --config webpack-dev-server.config.js",
-    "start:dev": "nodemon --ext '.js,.jsx' src/server/index.js"
+    "start:dev": "nodemon src/server/index.js --exact babel-node",
+    "start:prod": "node src/server/index.js",
+    "lint": "eslint src/ --fix"
   },
   "repository": {
     "type": "git",

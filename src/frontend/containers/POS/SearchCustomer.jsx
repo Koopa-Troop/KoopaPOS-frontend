@@ -38,7 +38,7 @@ const SearchCustomer = ({ customer, findCustomer, history }) => {
             outlined
             onClick={(e) => {
               e.preventDefault();
-              findCustomer(form.search)
+              findCustomer(form.search);
             }}
           >
             Buscar cliente

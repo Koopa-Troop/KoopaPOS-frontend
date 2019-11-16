@@ -25,6 +25,6 @@ const Products = ({ products }) => (
 
 const mapStateToProps = state => ({
   products: state.products,
-})
+});
 
 export default connect(mapStateToProps, null)(Products);

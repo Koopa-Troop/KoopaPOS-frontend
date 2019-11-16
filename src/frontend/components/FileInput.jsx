@@ -20,6 +20,6 @@ const FileInput = ({ name, onChange }) => {
       </label>
     </div>
   );
-}
+};
 
 export default FileInput;

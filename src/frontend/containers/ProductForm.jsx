@@ -112,4 +112,4 @@ const mapDispatchToProps = {
   updateProduct,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProductForm)
+export default connect(mapStateToProps, mapDispatchToProps)(ProductForm);

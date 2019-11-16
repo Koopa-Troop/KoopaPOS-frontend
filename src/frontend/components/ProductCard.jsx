@@ -49,7 +49,7 @@ const ProductCard = ({ product, checkout, onChangeCheckout, removeToCart, hideAv
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
 export default ProductCard;
