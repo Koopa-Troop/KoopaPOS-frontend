@@ -1,0 +1,35 @@
+@import '../variables.scss';
+
+picture.social__button {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  background: white;
+  border: 1px solid #70707033;
+  box-shadow: 0px 5px 5px rgba(0,0,0, 0.05);
+  -webkit-box-shadow: 0px 5px 5px rgba(0,0,0, 0.05);
+  -moz-box-shadow: 0px 5px 5px rgba(0,0,0, 0.05);
+  &.facebook {
+    & > img {
+      height: 30px;
+      width: auto;
+    }
+  }
+  &.google {
+    & > img {
+      height: 32px;
+      width: auto;
+    }
+  }
+  &.twitter {
+    & > img {
+      height: 26px;
+      width: auto;
+    }
+  }
+}
