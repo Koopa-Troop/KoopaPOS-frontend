@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import cx from 'classnames';
-import './Button.scss';
+import '../assets/styles/components/Button.scss';
 
 const Button = ({ children, to, primary, secondary, outlined, size, submit, black, ...props }) => {
   const Component = to ? Link : submit ? 'input' : 'button';

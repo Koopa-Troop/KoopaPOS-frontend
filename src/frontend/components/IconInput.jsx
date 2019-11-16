@@ -1,10 +1,10 @@
 import React from 'react';
 import cx from 'classnames';
-import './IconInput.scss';
+import '../assets/styles/components/IconInput.scss';
 
-const iOS = !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform);
+const iOS = false;//!!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform);
 
-export default ({ icon, size, ...props }) => {
+const IconInput = ({ icon, size, ...props }) => {
   const iconInputClassName = cx('icon__input', {
     [`input__${size}`]: size,
     ios__platform: iOS,
@@ -18,3 +18,5 @@ export default ({ icon, size, ...props }) => {
     </div>
   );
 };
+
+export default IconInput;

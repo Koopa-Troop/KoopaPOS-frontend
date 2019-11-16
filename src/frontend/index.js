@@ -1,19 +1,25 @@
 import React from 'react';
-import { render } from 'react-dom';
+import { hydrate } from 'react-dom';
 import { Provider } from 'react-redux';
+import { Router } from 'react-router';
 import { createStore, compose } from 'redux';
+import { createBrowserHistory } from 'history';
 import App from './routes/App';
 import reducer from './reducers';
-import '../../node_modules/@fortawesome/fontawesome-free/css/all.min.css';
+//import '../../node_modules/@fortawesome/fontawesome-free/css/all.min.css';
+import './assets/styles/fontawesome/css/all.min.css';
 import './assets/styles/main.scss';
 import initialState from './initialState';
 
 const composeEnhancers = (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
 const store = createStore(reducer, initialState, composeEnhancers());
+const history = createBrowserHistory();
 
-render(
+hydrate(
   <Provider store={store}>
-    <App />
+    <Router history={history}>
+      <App />
+    </Router>
   </Provider>,
-  document.getElementById('app')
+  document.getElementById('app'),
 );

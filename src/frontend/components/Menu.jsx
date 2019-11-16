@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import Logo from './Logo';
-import './Menu.scss';
+import '../assets/styles/components/Menu.scss';
 
 const Menu = ({ showMenu, logoutClick }) => {
   useEffect(() => {

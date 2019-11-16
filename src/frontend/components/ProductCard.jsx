@@ -2,7 +2,7 @@ import React from 'react';
 import cx from 'classnames';
 import IconInput from './IconInput';
 import Button from './Button';
-import './ProductCard.scss';
+import '../assets/styles/components/ProductCard.scss';
 
 const ProductCard = ({ product, checkout, onChangeCheckout, removeToCart, hideAvailability }) => {
   const productCardClassName = cx('pos__product__card', {

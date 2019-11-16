@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-for */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
-import './FileInput.scss';
+import '../assets/styles/components/FileInput.scss';
 
 const FileInput = ({ name, onChange }) => {
   const defaultLabelText = 'Seleccione un archivo';

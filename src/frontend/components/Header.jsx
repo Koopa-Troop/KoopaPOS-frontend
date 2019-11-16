@@ -5,7 +5,7 @@ import Logo from './Logo';
 import Menu from './Menu';
 import HeaderOptions from './HeaderOptions';
 import { showMenu, logoutSubmit } from '../actions';
-import './Header.scss';
+import '../assets/styles/components/Header.scss';
 
 const Header = ({ quantity, menu, showMenu, logoutSubmit }) => {
   const location = useLocation(),

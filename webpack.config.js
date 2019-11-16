@@ -1,17 +1,46 @@
 const path = require('path');
-const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const autoprefixer = require('autoprefixer');
+const webpack = require('webpack');
+const dotenv = require('dotenv');
+
+dotenv.config();
+
+const isProduction = process.env.NODE_ENV === 'production';
 
 module.exports = {
-  entry: './src/index.js',
+  devtool: isProduction ? 'hidden-source-map' : 'cheap-source-map',
+  entry: './src/frontend/index.js',
+  mode: process.env.NODE_ENV,
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
+    path: isProduction ? path.join(process.cwd(), './src/server/public') : '/',
+    filename: isProduction ? 'assets/app-[hash].js' : 'assets/app.js',
     publicPath: '/',
   },
   resolve: {
     extensions: ['.js', '.jsx'],
+  },
+  optimization: {
+    splitChunks: {
+      chunks: 'async',
+      name: true,
+      cacheGroups: {
+        vendors: {
+          name: 'vendors',
+          chunks: 'all',
+          reuseExistingChunk: true,
+          priority: 1,
+          filename: 'assets/vendor.js',
+          enforce: true,
+          test(module, chunks) {
+            const name = module.nameForCondition && module.nameForCondition();
+            return chunks.some(
+              isChunks => isChunks.name !== 'vendor' &&
+                /[\\/]node_modules[\\/]/.test(name),
+            );
+          },
+        },
+      },
+    },
   },
   module: {
     rules: [
@@ -38,22 +67,13 @@ module.exports = {
           },
           'css-loader',
           'sass-loader',
-          {
-            loader: 'postcss-loader',
-            options: {
-              ident: 'postcss',
-              plugins: [
-                autoprefixer(),
-              ],
-            },
-          },
         ],
       },
       {
         test: /\.(png|gif|jpg|svg|woff(2)?|ttf|eot)$/,
         use: [
           {
-            'loader': 'file-loader',
+            loader: 'file-loader',
             options: {
               name: 'assets/[hash].[ext]',
               publicPath: '/',
@@ -67,13 +87,10 @@ module.exports = {
     historyApiFallback: true,
   },
   plugins: [
-    new HtmlWebPackPlugin({
-      template: './public/index.html',
-      filename: './index.html',
-    }),
     new MiniCssExtractPlugin({
-      filename: 'assets/[name].css',
+      filename: 'assets/app.css',
       publicPath: '/',
     }),
+    new webpack.HotModuleReplacementPlugin(),
   ],
 };

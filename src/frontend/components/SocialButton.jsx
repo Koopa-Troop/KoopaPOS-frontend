@@ -1,14 +1,14 @@
 import React from 'react';
-import './SocialButton.scss';
 import facebook from '../assets/statics/social/facebook.svg';
 import google from '../assets/statics/social/google.svg';
 import twitter from '../assets/statics/social/twitter.svg';
+import '../assets/styles/components/SocialButton.scss';
 
 const logos = {
   'facebook': facebook,
   'google': google,
-  'twitter': twitter
-}
+  'twitter': twitter,
+};
 
 const SocialButton = ({ name }) => (
   <picture className={`social__button ${name}`}>
