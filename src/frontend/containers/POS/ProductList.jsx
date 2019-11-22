@@ -24,7 +24,7 @@ const POSProductList = ({ products, getProducts }) => {
       </section>
     </section>
   );
-}
+};
 
 const mapStateToProps = (state) => {
   return {
