@@ -19,7 +19,7 @@ const ServerRoutes = [
     component: Login,
     exact: true,
   },
-  { path: '/sign',
+  { path: '/register',
     component: Login,
     exact: true,
   },

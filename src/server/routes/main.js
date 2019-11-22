@@ -14,10 +14,12 @@ const main = (req, res, next) => {
   const initData = {};
   if (Object.keys(req.cookies).length > 0) {
     initData.user = {
+      id: req.cookies.id,
       email: req.cookies.email,
       name: req.cookies.name,
     };
   }
+  console.log(initData);
   try {
     const store = createStore(reducer, initialState(initData));
     const html = renderToString(

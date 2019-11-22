@@ -5,6 +5,18 @@ const webpack = require('webpack');
 const TerserPlugin = require('terser-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
+const dotenv = require('dotenv');
+
+const env = dotenv.config().parsed;
+
+// reduce it to a nice object, the same as before
+const envKeys = Object.keys(env).reduce((prev, next) => {
+  if (next === 'API_URL') {
+    // eslint-disable-next-line no-param-reassign
+    prev[`process.frontend.env.${next}`] = JSON.stringify(env[next]);
+  }
+  return prev;
+}, {});
 
 module.exports = {
   devtool: 'hidden-source-map',
@@ -99,5 +111,6 @@ module.exports = {
       filename: '[path].gz',
     }),
     new ManifestPlugin(),
+    new webpack.DefinePlugin(envKeys),
   ],
 };

@@ -1,5 +1,19 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const webpack = require('webpack');
+const dotenv = require('dotenv');
+
+const env = dotenv.config().parsed;
+
+// reduce it to a nice object, the same as before
+const envKeys = Object.keys(env).reduce((prev, next) => {
+  if (next === 'API_URL') {
+    // eslint-disable-next-line no-param-reassign
+    prev[`process.frontend.env.${next}`] = JSON.stringify(env[next]);
+  }
+  return prev;
+}, {});
+
+console.log(envKeys);
 
 module.exports = {
   devtool: 'cheap-source-map',
@@ -86,5 +100,6 @@ module.exports = {
       publicPath: '/',
     }),
     new webpack.HotModuleReplacementPlugin(),
+    new webpack.DefinePlugin(envKeys),
   ],
 };

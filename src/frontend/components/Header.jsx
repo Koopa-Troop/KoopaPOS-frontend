@@ -15,7 +15,7 @@ const Header = ({ quantity, menu, showMenu, logoutSubmit }) => {
     history.push('/login');
     logoutSubmit();
   };
-  if (['/sign', '/login', '/print'].indexOf(location.pathname) > -1) return null;
+  if (['/register', '/login', '/print'].indexOf(location.pathname) > -1) return null;
   return (
     <>
       <header className='header__application'>

@@ -15,7 +15,7 @@ const Products = ({ products }) => (
     </section>
     <section className='product__list__container'>
       { products.map(product => (
-        <Link to={`/product/${product.id}/edit`} key={product.id}>
+        <Link to={`/product/${product._id}/edit`} key={product._id}>
           <ProductCard product={product} hideAvailability />
         </Link>
       ))}

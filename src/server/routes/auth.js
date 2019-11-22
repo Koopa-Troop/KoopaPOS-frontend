@@ -24,7 +24,7 @@ function authRoutes(app) {
           res.cookie('token', token, {
             httpOnly: !config.dev,
             secure: !config.dev,
-            maxAge: 60000,
+            maxAge: 60000 * 15,
           });
 
           res.status(200).json(user);

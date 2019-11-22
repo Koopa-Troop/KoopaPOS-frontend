@@ -16,13 +16,13 @@ const Login = ({ match, history, loginRequest }) => (
         <NavLink to='/login' className='login__header__tab' activeClassName='active'>
           iniciar sesión
         </NavLink>
-        <NavLink to='/sign' className='login__header__tab' activeClassName='active'>
+        <NavLink to='/register' className='login__header__tab' activeClassName='active'>
           registrarse
         </NavLink>
       </div>
     </header>
     { match.path === '/login' && <LoginForm history={history} submit={loginRequest} /> }
-    { match.path === '/sign' && <SignForm history={history} /> }
+    { match.path === '/register' && <SignForm history={history} /> }
     <div className='login__social__buttons'>
       <a href='/auth/google'>
         <SocialButton name='google' />
@@ -53,9 +53,7 @@ const LoginForm = ({ submit, history }) => {
   });
   const handleSubmit = (event) => {
     event.preventDefault();
-    // eslint-disable-next-line no-unused-vars
-    submit(form);
-    history.push('/');
+    submit(form, history);
   };
   return (
     <form className='login__form' onSubmit={handleSubmit}>

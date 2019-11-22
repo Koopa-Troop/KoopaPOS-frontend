@@ -35,7 +35,7 @@ const Cart = ({ quantity, total, cart, removeToCart, setQuantity }) => (
         <ProductCard
           hideAvailability
           checkout
-          key={product.id}
+          key={product._id}
           product={product}
           onChangeCheckout={event => setQuantity({
             ...product,
