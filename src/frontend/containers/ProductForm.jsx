@@ -4,7 +4,7 @@ import uuidv4 from 'uuid/v4';
 import IconInput from '../components/IconInput';
 import FileInput from '../components/FileInput';
 import Button from '../components/Button';
-import { createProduct, updateProduct } from '../actions';
+import { createProductRequest, updateProduct } from '../actions';
 import '../assets/styles/ProductForm.scss';
 
 const ProductForm = ({ history, createProduct, updateProduct, product }) => {
@@ -23,18 +23,15 @@ const ProductForm = ({ history, createProduct, updateProduct, product }) => {
   const handleImage = (event) => {
     if (event.currentTarget.files.length > 0) {
       const file = event.currentTarget.files[0];
-      /*setValues({
-        ...form,
-        image: file,
-      });*/
       const reader = new FileReader();
       reader.onload = (e) => {
         setValues({
           ...form,
           preview: e.target.result,
-          image: e.target.result,
+          image: file,
         });
       };
+      console.log(form);
       reader.readAsDataURL(file);
     } else {
       setValues({
@@ -53,15 +50,14 @@ const ProductForm = ({ history, createProduct, updateProduct, product }) => {
       updateProduct({
         id: product.id,
         ...data,
-      });
+      }, history);
     } else {
       createProduct({
         id: uuidv4(),
         availability: true,
         ...data,
-      });
+      }, history);
     }
-    history.push('/products');
   };
   return (
     <form className='product__form' onSubmit={handleSubmit}>
@@ -108,7 +104,7 @@ const mapStateToProps = (state, props) => {
 };
 
 const mapDispatchToProps = {
-  createProduct,
+  createProduct: createProductRequest,
   updateProduct,
 };
 

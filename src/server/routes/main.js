@@ -10,11 +10,18 @@ import render from '../render';
 import initialState from '../../frontend/initialState';
 import Header from '../../frontend/components/Header';
 
-console.log(Routes);
-
 const main = (req, res, next) => {
+  const initData = {};
+  if (Object.keys(req.cookies).length > 0) {
+    initData.user = {
+      id: req.cookies.id,
+      email: req.cookies.email,
+      name: req.cookies.name,
+    };
+  }
+  console.log(initData);
   try {
-    const store = createStore(reducer, initialState);
+    const store = createStore(reducer, initialState(initData));
     const html = renderToString(
       <Provider store={store}>
         <StaticRouter location={req.url} context={{}}>

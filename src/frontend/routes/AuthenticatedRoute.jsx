@@ -1,12 +1,12 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import { Route, useHistory } from 'react-router-dom';
+import getCookie from '../utils/getCookie';
 
-const AuthenticatedRoute = ({ authenticated, component: Component, user, ...otherProps }) => {
+const AuthenticatedRoute = ({ authenticated, component: Component, ...otherProps }) => {
   const history = useHistory();
-  if (authenticated && Object.keys(user).length === 0) {
+  if (authenticated && getCookie('token') === '') {
     history.push('/login');
-  } else if (!authenticated && Object.keys(user).length > 0) {
+  } else if (!authenticated && getCookie('token')) {
     history.push('/');
   }
   return (
@@ -14,8 +14,4 @@ const AuthenticatedRoute = ({ authenticated, component: Component, user, ...othe
   );
 };
 
-const mapStateToProps = state => ({
-  user: state.user,
-});
-
-export default connect(mapStateToProps)(AuthenticatedRoute);
+export default AuthenticatedRoute;

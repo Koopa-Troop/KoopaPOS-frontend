@@ -94,6 +94,11 @@ const reducer = (state, action) => {
         products: [...updatedProducts],
       });
     }
+    case 'SET_PRODUCT_LIST':
+      return ({
+        ...state,
+        products: action.payload,
+      })
     default:
       return state;
   }

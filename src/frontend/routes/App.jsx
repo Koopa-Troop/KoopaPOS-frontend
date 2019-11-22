@@ -18,7 +18,7 @@ const App = () => (
     <Header />
     <Switch>
       <AuthenticatedRoute exact path='/login' component={Login} />
-      <AuthenticatedRoute exact path='/sign' component={Login} />
+      <AuthenticatedRoute exact path='/register' component={Login} />
       <AuthenticatedRoute exact authenticated path='/' component={POSProductList} />
       <AuthenticatedRoute exact authenticated path='/products' component={Products} />
       <AuthenticatedRoute exact authenticated path='/product/create' component={ProductForm} />
