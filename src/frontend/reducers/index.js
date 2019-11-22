@@ -98,7 +98,7 @@ const reducer = (state, action) => {
       return ({
         ...state,
         products: action.payload,
-      })
+      });
     default:
       return state;
   }
