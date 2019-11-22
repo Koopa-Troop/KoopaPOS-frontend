@@ -84,7 +84,7 @@ div.login__social__buttons {
   justify-content: center;
   width: 100vw;
   margin-top: 22px;
-  & > picture:not(:last-of-type) {
+  & > a:not(:last-of-type) {
     margin-right: 16px
   }
 }

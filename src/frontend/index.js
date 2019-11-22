@@ -2,7 +2,8 @@ import React from 'react';
 import { hydrate } from 'react-dom';
 import { Provider } from 'react-redux';
 import { Router } from 'react-router';
-import { createStore, compose } from 'redux';
+import { createStore, compose, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 import { createBrowserHistory } from 'history';
 import App from './routes/App';
 import reducer from './reducers';
@@ -12,7 +13,9 @@ import './assets/styles/main.scss';
 import initialState from './initialState';
 
 const composeEnhancers = (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
-const store = createStore(reducer, initialState, composeEnhancers());
+const store = createStore(reducer, initialState(), composeEnhancers(
+  applyMiddleware(thunk),
+));
 const history = createBrowserHistory();
 
 hydrate(

@@ -5,10 +5,10 @@ import SocialButton from '../components/SocialButton';
 import IconInput from '../components/IconInput';
 import Button from '../components/Button';
 import Logo from '../components/Logo';
-import { loginSubmit } from '../actions';
+import { loginRequest } from '../actions';
 import '../assets/styles/Login.scss';
 
-const Login = ({ match, history, loginSubmit }) => (
+const Login = ({ match, history, loginRequest }) => (
   <>
     <header className='login__header'>
       <picture className='login__header__picture'><Logo /></picture>
@@ -21,12 +21,18 @@ const Login = ({ match, history, loginSubmit }) => (
         </NavLink>
       </div>
     </header>
-    { match.path === '/login' && <LoginForm history={history} submit={loginSubmit} /> }
+    { match.path === '/login' && <LoginForm history={history} submit={loginRequest} /> }
     { match.path === '/sign' && <SignForm history={history} /> }
     <div className='login__social__buttons'>
-      <SocialButton name='google' />
-      <SocialButton name='facebook' />
-      <SocialButton name='twitter' />
+      <a href='/auth/google'>
+        <SocialButton name='google' />
+      </a>
+      <a href='/auth/facebook'>
+        <SocialButton name='facebook' />
+      </a>
+      <a href='/auth/twitter'>
+        <SocialButton name='twitter' />
+      </a>
     </div>
     <footer className='login__footer'>
       Made with &nbsp;
@@ -48,8 +54,7 @@ const LoginForm = ({ submit, history }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     // eslint-disable-next-line no-unused-vars
-    const { password, ...data } = form;
-    submit(data);
+    submit(form);
     history.push('/');
   };
   return (
@@ -108,7 +113,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  loginSubmit,
+  loginRequest,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

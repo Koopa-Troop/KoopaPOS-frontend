@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 export const addToCart = payload => ({
   type: 'ADD_TO_CART',
   payload,
@@ -45,4 +47,24 @@ export const updateProduct = payload => ({
   payload,
 });
 
+export const loginRequest = ({ email, password }) => {
+  debugger;
+  return (dispatch) => {
+    axios({
+      url: '/auth/sign-in',
+      method: 'post',
+      auth: {
+        username: email,
+        password,
+      },
+    })
+      .then(({ data }) => {
+        document.cookie = `email=${data.user.email}`;
+        document.cookie = `name=${data.user.name}`;
+        document.cookie = `id=${data.user.id}`;
+        dispatch(loginSubmit({ ...data }));
+      })
+      .catch((err) => { console.log(err); });
+  };
+};
 export default {};
