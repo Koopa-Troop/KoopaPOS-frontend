@@ -62,7 +62,6 @@ const Product = ({ product, addToCart, history }) => {
 };
 
 const mapStateToProps = (state, props) => {
-  debugger;
   return {
     product: state.products.find(product => product._id === props.match.params.id),
   };
