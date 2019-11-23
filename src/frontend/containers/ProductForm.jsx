@@ -99,7 +99,7 @@ const ProductForm = ({ history, createProduct, updateProduct, product }) => {
 const mapStateToProps = (state, props) => {
   const hasProduct = Object.keys(props.match.params).length > 0;
   return ({
-    product: hasProduct ? state.products.find(product => product.id === props.match.params.id) : null,
+    product: hasProduct ? state.products.find(product => product._id === props.match.params.id) : null,
   });
 };
 
