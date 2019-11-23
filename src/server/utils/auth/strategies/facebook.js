@@ -11,8 +11,8 @@ passport.use(
     {
       clientID: config.facebookClientId,
       clientSecret: config.facebookClientSecret,
-      callbackURL: '/auth/facebook/callback',
-      profilerFields: ['id', 'email', 'displayName']
+      callbackURL: `${config.appUrl}/auth/facebook/callback`,
+      profilerFields: ['id', 'email', 'displayName'],
     },
     async (accessToken, refreshToken, profile, done) => {
 
