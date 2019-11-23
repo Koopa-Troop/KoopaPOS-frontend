@@ -4,6 +4,7 @@ const config = {
   dev: process.env.NODE_ENV !== 'production',
   port: process.env.PORT || 8000,
   apiUrl: process.env.API_URL,
+  appUrl: process.env.APP_URL,
   apiKeyToken: process.env.API_KEY_TOKEN,
   sessionSecret: process.env.SESSION_SECRET,
   twitterConsumerKey: process.env.TWITTER_CONSUMER_KEY,

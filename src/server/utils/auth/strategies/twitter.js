@@ -11,7 +11,7 @@ passport.use(
     {
       consumerKey: config.twitterConsumerKey,
       consumerSecret: config.twitterConsumerSecret,
-      callbackURL: '/auth/twitter/callback',
+      callbackURL: `${config.appUrl}/auth/twitter/callback`,
       includeEmail: true,
     },
     async (token, tokenSecret, profile, cb) => {
