@@ -80,8 +80,20 @@ app.get(
       httpOnly: !config.dev,
       secure: !config.dev,
     });
+    res.cookie('email', user.email, {
+      httpOnly: false,
+      secure: false,
+    });
+    res.cookie('name', user.name, {
+      httpOnly: false,
+      secure: false,
+    });
+    res.cookie('id', user.id, {
+      httpOnly: false,
+      secure: false,
+    });
 
-    res.status(200).json(user);
+    res.redirect('/');
   },
 );
 
@@ -106,8 +118,20 @@ app.get(
       httpOnly: !config.dev,
       secure: !config.dev,
     });
+    res.cookie('email', user.email, {
+      httpOnly: false,
+      secure: false,
+    });
+    res.cookie('name', user.name, {
+      httpOnly: false,
+      secure: false,
+    });
+    res.cookie('id', user.id, {
+      httpOnly: false,
+      secure: false,
+    });
 
-    res.status(200).json(user);
+    res.redirect('/');
   },
 );
 
@@ -126,8 +150,20 @@ app.get(
       httpOnly: !config.dev,
       secure: !config.dev,
     });
+    res.cookie('email', user.email, {
+      httpOnly: false,
+      secure: false,
+    });
+    res.cookie('name', user.name, {
+      httpOnly: false,
+      secure: false,
+    });
+    res.cookie('id', user.id, {
+      httpOnly: false,
+      secure: false,
+    });
 
-    res.status(200).json(user);
+    res.redirect('/');
   },
 );
 

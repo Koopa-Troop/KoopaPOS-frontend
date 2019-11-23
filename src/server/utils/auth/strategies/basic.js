@@ -16,7 +16,7 @@ passport.use(
         },
         data: {
           apiKeyToken: config.apiKeyToken,
-        }
+        },
       });
 
       if (!data || status !== 200) {
@@ -27,5 +27,5 @@ passport.use(
     } catch (error) {
       cb(error);
     }
-  },)
+  }),
 );
